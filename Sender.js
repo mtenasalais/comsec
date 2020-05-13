@@ -1,7 +1,7 @@
 const dgram = require('dgram');
 const prompt = require('prompt-sync')({sigint: true});
 const client =  dgram.createSocket('udp4');
-client.setBroadcast(true);
+//client.setBroadcast(true);
 //const client = dgram.createSocket('udp4');
 class Sender {
     constructor(mess,ip) {
