@@ -11,7 +11,7 @@ const Sender = require('./Sender.js')
     function test()
     {
         //s=new Sender('yeet', '192.168.0.20')
-        //s=new Sender('yeet','192.168.0.17')
-        s=new Sender('yeet','192.168.43.22')
+        s=new Sender('yeet','192.168.0.17')
+        //s=new Sender('yeet','192.168.43.22')
         s.sendMessage()
     }
