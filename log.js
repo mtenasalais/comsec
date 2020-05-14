@@ -40,7 +40,7 @@ fs.writeFile('IV.txt', iv, (err) => {
         var en =encrypt(prompt('Message?'));
         s=new Sender(en.encryptedData, '192.168.0.20')
         //console.log(en);
-        console.log(decrypt(en));
+        console.log(decrypt(en.encryptedData));
         
         //s=new Sender('yeet','192.168.0.14')
         //s=new Sender('yeet','192.168.43.22')
@@ -55,9 +55,9 @@ fs.writeFile('IV.txt', iv, (err) => {
         return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
        }
     function decrypt(text) { 
-        let iv = Buffer.from(text.iv, 'hex'); 
-        let encryptedText = Buffer.from(text.encryptedData, 'hex'); 
-        let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), iv); 
+        let ivv = Buffer.from(iv, 'hex'); 
+        let encryptedText = Buffer.from(text, 'hex'); 
+        let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), ivv); 
         let decrypted = decipher.update(encryptedText); 
         decypted = Buffer.concat([decrypted, decipher.final()]); 
         //console.log(decypted.toString());
