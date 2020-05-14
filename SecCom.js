@@ -1,7 +1,6 @@
 const crypto = require('crypto');
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
-const crypto = require('crypto');
 const fs = require('fs');
 const algorithm = 'aes-256-cbc';
 //const key = crypto.randomBytes(32);
