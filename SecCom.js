@@ -11,14 +11,14 @@ var key;
 fs.readFile('./IV.txt', (err, data) => {
   if (err) throw err;
   //console.log(data);
-  //console.log(iv);
   iv=data
+  console.log(iv);
 });
 fs.readFile('./Key.txt', (err, data) => {
     if (err) throw err;
     //console.log(data);
-    //console.log(key);
     key=data;
+    console.log(key);
 });
 
 
@@ -29,7 +29,7 @@ server.on('error', (err) => {
 
 server.on('message', (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-  console.log(`            ${decrypt(msg)} from ${rinfo.address}:${rinfo.port}`);
+  //console.log(`            ${decrypt(msg)} from ${rinfo.address}:${rinfo.port}`);
 });
 
 server.on('listening', () => {
@@ -41,8 +41,10 @@ server.bind(41234);
 // Prints: server listening 0.0.0.0:41234
 
 function decrypt(text) { 
+  
+  var inmess = Buffer.from(text);
   let ivv = Buffer.from(iv, 'hex'); 
-  let encryptedText = Buffer.from(text, 'hex'); 
+  let encryptedText = Buffer.from(inmess, 'hex'); 
   let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), ivv); 
   let decrypted = decipher.update(encryptedText); 
   decypted = Buffer.concat([decrypted, decipher.final()]); 

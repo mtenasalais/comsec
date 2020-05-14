@@ -39,8 +39,8 @@ fs.writeFile('IV.txt', iv, (err) => {
     {
         var en =encrypt(prompt('Message?'));
         s=new Sender(en.encryptedData, '192.168.0.20')
-        //console.log(en);
-        console.log(decrypt(en.encryptedData));
+        console.log(en);
+        //console.log(decrypt(en.encryptedData));
         
         //s=new Sender('yeet','192.168.0.14')
         //s=new Sender('yeet','192.168.43.22')
