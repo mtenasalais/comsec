@@ -1,22 +1,17 @@
 const dgram = require('dgram');
-const prompt = require('prompt-sync')({sigint: true});
 const client =  dgram.createSocket('udp4');
 //client.setBroadcast(true);
 //const client = dgram.createSocket('udp4');
 class Sender {
-    constructor(mess,ip) {
-     
-      this.message = mess;
-      this.ip=ip
 
-    }
-    
-    present() {
-      return "I have a " + this.carname;
+    constructor(mess,ip) {
+    this.message = mess;
+    this.ip=ip
+    //console.log(mess);
     }
 
     myFunction() {
-        this.message =prompt('Message?');
+        //this.message =prompt('Message?');
       }
     
     sendMessage() {

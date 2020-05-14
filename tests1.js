@@ -1,5 +1,6 @@
 const dgram = require('dgram');
 //const message = Buffer.from('Some bytes');
+const fs = require('fs');
 
 
 const prompt = require('prompt-sync')({sigint: true});
